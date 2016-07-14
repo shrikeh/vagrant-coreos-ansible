@@ -1,0 +1,6 @@
+---
+kubernetes_version: v1.3.0_coreos.1
+kubernetes_hyperkube_image_repo: quay.io/coreos/hyperkube
+kubernetes_manifests_dir:  /etc/kubernetes/manifests
+kubernetes_network_plugin: ''
+...

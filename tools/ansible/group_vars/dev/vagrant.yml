@@ -1,0 +1,25 @@
+---
+coreos_vagrant_dir: /Volumes/Workspace/coreos-vagrant/tools/coreos-vagrant
+cloud_config_file: user-data
+
+vagrant_ip_range: '172.17.8'
+
+vagrant_vagrantfile: Vagrantfile
+vagrant_box_url_pattern: https://storage.googleapis.com/%s.release.core-os.net/amd64-usr/%s/coreos_production_vagrant.json
+vagrant_box_url_vmware_pattern: https://storage.googleapis.com/%s.release.core-os.net/amd64-usr/%s/coreos_production_vagrant_vmware_fusion.json
+
+vagrant_box_url: "{{ vagrant_box_url_pattern % (coreos_update_channel, coreos_image_version) }}"
+vagrant_box_url_vmware: "{{ vagrant_box_url_vmware_pattern % (coreos_update_channel, coreos_image_version) }}"
+
+vagrant_cloud_config_tmp_path: "/tmp/vagrantfile-{{ cloud_config_file }}"
+vagrant_cloud_config_shell_provision_path: /var/lib/coreos-vagrant/
+
+vagrant_instance_name_prefix: 'shrikeh'
+vagrant_min_version: 1.8.0
+vagrant_config_file: config.rb
+vagrant_enable_serial_logging: 'false'
+vagrant_vm_memory: 1024
+vagrant_vm_cpus: 1
+vagrant_vb_cpuexecutioncap: 100
+vagrant_expose_docker_tcp: 2375
+...

@@ -1,0 +1,23 @@
+#{{ ansible_managed }}
+[Service]
+Environment=KUBELET_VERSION={{kubernetes_version}}
+Environment=KUBELET_ACI={{kubernetes_hyperkube_image_repo}}
+ExecStartPre=/usr/bin/mkdir -p {{ kubernetes_manifests_dir }}
+ExecStart=/usr/lib/coreos/kubelet-wrapper \
+  --api-servers=${CONTROLLER_ENDPOINT} \
+  --network-plugin-dir=/etc/kubernetes/cni/net.d \
+  --network-plugin={{ kubernetes_network_plugin }} \
+  --register-node=true \
+  --allow-privileged=true \
+  --config={{ kubernetes_manifests_dir }} \
+  --hostname-override=${ADVERTISE_IP} \
+  --cluster_dns=${DNS_SERVICE_IP} \
+  --cluster_domain=cluster.local \
+  --kubeconfig=/etc/kubernetes/worker-kubeconfig.yaml \
+  --tls-cert-file=/etc/kubernetes/ssl/worker.pem \
+  --tls-private-key-file=/etc/kubernetes/ssl/worker-key.pem
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
