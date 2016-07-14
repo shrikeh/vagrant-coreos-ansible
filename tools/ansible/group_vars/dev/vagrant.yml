@@ -1,5 +1,5 @@
 ---
-coreos_vagrant_dir: /Volumes/Workspace/coreos-vagrant/tools/coreos-vagrant
+coreos_vagrant_dir: /Volumes/Workspace/coreos-vagrant/tools/vagrant
 cloud_config_file: user-data
 
 vagrant_ip_range: '172.17.8'
