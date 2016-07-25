@@ -1,0 +1,7 @@
+---
+
+coreos_kubernetes_kubelet_service_path: '/etc/systemd/system/kubelet.service'
+coreos_kubernetes_manifests_path: '/etc/kubernetes/manifests'
+coreos_kubernetes_kubelet_wrapper_path: '/usr/lib/coreos/kubelet-wrapper'
+coreos_kubernetes_kubelet_cluster_domain: 'cluster.local'
+coreos_kubernetes_network_plugin: ''

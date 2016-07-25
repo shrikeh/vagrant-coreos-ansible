@@ -1,10 +1,12 @@
 ---
-coreos_vagrant_dir: /Volumes/Workspace/coreos-vagrant/tools/vagrant
+dev_base_dir: /Volumes/Workspace/coreos-vagrant
+vagrant_dir: "{{ dev_base_dir }}/tools/vagrant"
 cloud_config_file: user-data
 
 vagrant_ip_range: '172.17.8'
 
 vagrant_vagrantfile: Vagrantfile
+vagrant_playbook: 'coreos.yml'
 vagrant_box_url_pattern: https://storage.googleapis.com/%s.release.core-os.net/amd64-usr/%s/coreos_production_vagrant.json
 vagrant_box_url_vmware_pattern: https://storage.googleapis.com/%s.release.core-os.net/amd64-usr/%s/coreos_production_vagrant_vmware_fusion.json
 
@@ -13,6 +15,8 @@ vagrant_box_url_vmware: "{{ vagrant_box_url_vmware_pattern % (coreos_update_chan
 
 vagrant_cloud_config_tmp_path: "/tmp/vagrantfile-{{ cloud_config_file }}"
 vagrant_cloud_config_shell_provision_path: /var/lib/coreos-vagrant/
+
+#vagrant_provision_galaxy_roles_dir: "{{ dev_base_dir }}/tools/ansible/roles/galaxy"
 
 vagrant_instance_name_prefix: 'shrikeh'
 vagrant_min_version: 1.8.0

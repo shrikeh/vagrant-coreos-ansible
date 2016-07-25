@@ -1,0 +1,14 @@
+---
+- name: Get the token
+  local_action:
+    module: uri
+    return_content: yes
+    url: "{{ coreos_discovery_url }}{{ coreos_cluster_size | default(3) }}"
+  register: coreoes_discovery_response
+  when: coreoes_discovery_token is not defined
+
+- name: Set the discovery token
+  set_fact:
+    coreoes_discovery_token: "{{ coreoes_discovery_response.content }}"
+  when: coreoes_discovery_token is not defined
+...

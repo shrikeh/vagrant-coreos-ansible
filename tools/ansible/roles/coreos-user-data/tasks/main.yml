@@ -1,0 +1,6 @@
+---
+- name: Create the cloud config file from the template
+  template:
+    dest: "{{ vagrant_dir }}/{{ cloud_config_file }}"
+    src: templates/user-data.j2
+...

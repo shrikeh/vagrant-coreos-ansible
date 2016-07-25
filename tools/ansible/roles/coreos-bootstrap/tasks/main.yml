@@ -1,0 +1,4 @@
+---
+- name: Run deferred setup to gather facts
+  setup:
+...

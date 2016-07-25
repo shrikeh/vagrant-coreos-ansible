@@ -1,0 +1,21 @@
+---
+- name: Make the vagrant folder
+  file:
+    path: "{{ vagrant_dir }}"
+    state: directory
+
+- name: Copy the config template into the new directory
+  template:
+    dest: "{{ vagrant_dir }}/{{ vagrant_config_file }}"
+    src: config.rb.j2
+
+- name: Copy the Vagrantfile into the new directory
+  template:
+    dest: "{{ vagrant_dir }}/{{ vagrant_vagrantfile }}"
+    src: Vagrantfile.j2
+
+- name: Vagrant up
+  shell: 'vagrant up'
+  args:
+    chdir: "{{ vagrant_dir }}"
+...

@@ -3,4 +3,27 @@ kubernetes_version: v1.3.0_coreos.1
 kubernetes_hyperkube_image_repo: quay.io/coreos/hyperkube
 kubernetes_manifests_dir:  /etc/kubernetes/manifests
 kubernetes_network_plugin: ''
+
+# The CIDR network to use for service cluster VIPs (Virtual IPs). Each service
+#  will be assigned a cluster IP out of this range. This must not overlap with
+# any IP ranges assigned to the kubernetes_pod_network, or other existing network
+# infrastructure. Routing to these VIPs is handled by a local kube-proxy
+# service to each host, and are not required to be routable between hosts.
+kubernetes_service_ip_range: '10.3.0.0/24'
+
+# The VIP (Virtual IP) address of the Kubernetes API Service. If the
+# kubernetes_service_ip_range is changed above, this must be set to the first IP
+# in that range.
+kubernetes_service_ip: 10.3.0.1
+
+# The CIDR network to use for pod IPs. Each pod launched in the cluster will be
+#nassigned an IP out of this range. This network must be routable between all
+# hosts in the cluster. In a default installation, the flannel overlay network
+#  will provide routing to this network.
+kubernetes_pod_network: '10.2.0.0/16'
+
+# The VIP (Virtual IP) address of the cluster DNS service. This IP must be in
+# the range of the kubernetes_service_ip_range and cannot be the first IP in the
+# range. This same IP must be configured on all worker nodes to enable DNS service discovery.
+kubernetes_dns_service_ip: 10.3.0.10
 ...

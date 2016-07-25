@@ -1,14 +1,14 @@
 [dev]
 localhost
 
-[coreos]
-shrikeh-01
-
-[coreos:vars]
-gather_facts=false
-ansible_ssh_user=core
-ansible_python_interpreter="PATH=/home/core/bin:$PATH python"
-
 [dev:vars]
 ansible_python_interpreter=python
 ansible_connection=local
+
+
+[coreos]
+
+[coreos:vars]
+gather_facts=false
+
+[coreos-controller]

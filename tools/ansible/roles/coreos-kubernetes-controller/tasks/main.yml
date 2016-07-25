@@ -1,0 +1,11 @@
+---
+- name: Get the advertised IP
+  shell: |
+    echo $(awk -F= '/COREOS_PUBLIC_IPV4/ {print $2}' /etc/environment)
+  register: coreos_kubernetes_advertised_ip_stdout
+  when: coreos_kubernetes_advertised_ip is not defined
+
+- name: debug
+  debug:
+    var: coreos_kubernetes_advertised_ip_stdout
+...

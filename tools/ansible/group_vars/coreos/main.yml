@@ -1,0 +1,4 @@
+---
+ansible_user: 'core'
+ansible_python_interpreter: "{{ coreos_ansible_python_interpreter_path }}"
+...

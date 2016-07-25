@@ -1,0 +1,4 @@
+---
+coreos_kubernetes_controller_api_servers:
+  - http://127.0.0.1:8080
+...

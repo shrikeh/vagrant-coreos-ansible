@@ -1,5 +1,10 @@
-
+---
 coreos_discovery_domain: discovery.etcd.io
 coreos_discovery_url: "https://{{ coreos_discovery_domain }}/new?size="
 coreos_update_channel: alpha
 coreos_image_version: current
+coreos_python_interpreter: python
+coreos_ansible_user: core
+coreos_ansible_user_home: "/home/{{ coreos_ansible_user }}"
+coreos_ansible_python_interpreter_path: "{{ coreos_ansible_user_home}}/bin/{{ coreos_python_interpreter }}"
+...

@@ -1,0 +1,8 @@
+---
+docker_toolbox_maintainer: 'barney@shrikeh.net'
+docker_toolbox_base_image: 'fedora'
+docker_toolbox_image: 'shrikeh/toolbox'
+docker_toolbox_pkg_mgr: '/usr/bin/dnf'
+docker_toolbox_pkgs:
+  - 'python'
+...

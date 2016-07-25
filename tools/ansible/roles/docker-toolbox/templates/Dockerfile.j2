@@ -1,0 +1,5 @@
+FROM {{ docker_toolbox_base_image }}
+
+MAINTAINER {{ docker_toolbox_maintainer }}
+
+RUN {{ docker_toolbox_pkg_mgr }} -y install {{ docker_toolbox_pkgs | join(' ') }}
